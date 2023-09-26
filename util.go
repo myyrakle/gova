@@ -1,6 +1,9 @@
 package java
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 type javaUtil struct {
 	New_Scanner func(source InputStream) Scanner
@@ -39,6 +42,16 @@ func (this *Scanner) Next() string {
 	}
 
 	return string(buffer)
+}
+
+func (this *Scanner) NextInt() int {
+	rawData := this.Next()
+
+	if data, err := strconv.Atoi(rawData); err != nil {
+		panic(&InputMismatchException{message: rawData})
+	} else {
+		return data
+	}
 }
 
 type InputMismatchException struct {
