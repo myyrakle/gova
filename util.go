@@ -34,6 +34,10 @@ func (this *Scanner) Next() string {
 			break
 		}
 
+		if data == '\r' {
+			continue
+		}
+
 		if data == '\n' {
 			break
 		}
@@ -68,6 +72,8 @@ func (this *Scanner) NextInt() Integer {
 	rawData := this.Next()
 
 	if data, err := strconv.Atoi(rawData); err != nil {
+		fmt.Println(err)
+		fmt.Println("+" + rawData + "+")
 		panic(&InputMismatchException{message: rawData})
 	} else {
 		return Integer(data)
