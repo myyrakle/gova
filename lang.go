@@ -7,6 +7,7 @@ type javaLang struct {
 type javaLangSystem struct {
 	Out PrintStream
 	Err PrintStream
+	In  InputStream
 }
 
 var Lang = javaLang{}
