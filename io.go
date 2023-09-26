@@ -31,7 +31,6 @@ type InputStream struct {
 //
 // int read(byte[] b) => Reads some number of bytes from the input stream and stores them into the buffer array b.
 func (i InputStream) Read(data ...[]byte) int {
-
 	switch len(data) {
 	case 0:
 		buffer := make([]byte, 1)

@@ -1,5 +1,7 @@
 package java
 
+import "fmt"
+
 type javaUtil struct {
 	New_Scanner func(source InputStream) Scanner
 }
@@ -37,4 +39,12 @@ func (this *Scanner) Next() string {
 	}
 
 	return string(buffer)
+}
+
+type InputMismatchException struct {
+	message string
+}
+
+func (this *InputMismatchException) Error() string {
+	return fmt.Sprintf("InputMismatchException: %s", this.message)
 }
